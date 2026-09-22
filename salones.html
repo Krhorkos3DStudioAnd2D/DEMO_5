@@ -1,1 +1,344 @@
 
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[NOMBRE_DEL_SALON] - Catálogo de Salones</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+        }
+        .gold-text {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .salon-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .salon-card.selected {
+            border-color: #f59e0b;
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+            background-color: rgba(24, 24, 27, 0.95);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col selection:bg-amber-500 selection:text-zinc-950">
+
+    <!-- ========================================== -->
+    <!-- 5. NAVEGACIÓN Y ENCABEZADO -->
+    <!-- ========================================== -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/80 border-b border-zinc-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center shadow-lg shadow-amber-900/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-champagne-glasses text-zinc-950 text-lg"></i>
+                </div>
+                <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white">[NOMBRE_DEL_SALON]</span>
+            </a>
+            
+            <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-amber-500/50 hover:bg-zinc-800/50 transition-all">
+                <i class="fa-solid fa-arrow-left text-xs"></i>
+                <span>Regresar al Inicio</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ========================================== -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        
+        <!-- Encabezado de la Sección -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-amber-500 text-sm font-semibold tracking-widest uppercase mb-3 block">Exclusividad & Elegancia</span>
+            <h1 class="text-3xl sm:text-5xl font-bold tracking-tight mb-4 text-white">Nuestros Salones para Eventos</h1>
+            <p class="text-zinc-400 text-base sm:text-lg">Selecciona el espacio ideal para tu celebración. Revisa la galería en collage, características y disponibilidad.</p>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- 1. 🃏 TARJETAS DE CADA SALÓN -->
+        <!-- ========================================== -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20" id="salones-container">
+            
+            <!-- ====================================================================================================== SALÓN 1 ====================================================================================================== -->
+            <div class="salon-card bg-zinc-900/60 border border-zinc-800/80 rounded-3xl overflow-hidden flex flex-col shadow-xl" 
+                 data-id="salon-1"
+                 data-nombre="[NOMBRE_SALON_1]"
+                 data-precio="[PRECIO_SALON_1]"
+                 data-estado="[ESTADO_SALON_1]"
+                 data-ubicacion="[UBICACION_SALON_1]"
+                 data-descripcion="[DESCRIPCION_SALON_1]">
+                
+                <!-- GALERÍA DE IMÁGENES: 1 principal grande + 2 pequeñas (Collage) -->
+                <div class="grid grid-cols-3 gap-1.5 p-2 bg-zinc-950/40 h-64 sm:h-72">
+                    <div class="col-span-2 relative overflow-hidden rounded-2xl group">
+                        <img src="[IMAGEN_PRINCIPAL_1]" alt="[NOMBRE_SALON_1] Principal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 bg-zinc-800">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="col-span-1 flex flex-col gap-1.5">
+                        <div class="h-1/2 relative overflow-hidden rounded-2xl group">
+                            <img src="[IMAGEN_SECUNDARIA_1]" alt="[NOMBRE_SALON_1] Secundaria" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 bg-zinc-800">
+                        </div>
+                        <div class="h-1/2 relative overflow-hidden rounded-2xl group">
+                            <img src="[IMAGEN_TERCERA_1]" alt="[NOMBRE_SALON_1] Tercera" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 bg-zinc-800">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido de la Tarjeta -->
+                <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between">
+                    <div>
+                        <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                            <h3 class="font-serif text-2xl font-bold text-white">[NOMBRE_SALON_1]</h3>
+                            
+                            <!-- Estado de ocupación -->
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 status-badge">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                [ESTADO_SALON_1]
+                            </span>
+                        </div>
+
+                        <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
+                            [DESCRIPCION_SALON_1]
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 text-sm">
+                            <div class="flex items-center gap-2.5 text-zinc-400 bg-zinc-950/50 px-3.5 py-2.5 rounded-xl border border-zinc-800/60">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i>
+                                <span class="truncate">[UBICACION_SALON_1]</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 text-zinc-400 bg-zinc-950/50 px-3.5 py-2.5 rounded-xl border border-zinc-800/60">
+                                <i class="fa-solid fa-tag text-amber-500"></i>
+                                <span class="font-bold text-white">$[PRECIO_SALON_1] MXN</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. ✅ SELECCIÓN DE SALÓN -->
+                    <button type="button" onclick="seleccionarSalon(this)" class="select-btn w-full py-3.5 px-4 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-zinc-800 text-zinc-200 border border-zinc-700 hover:bg-zinc-700 hover:text-white cursor-pointer">
+                        <i class="fa-regular fa-circle-check text-lg"></i>
+                        <span>Seleccionar y Cotizar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ====================================================================================================== SALÓN 2 ======================================================================================================-->
+            <div class="salon-card bg-zinc-900/60 border border-zinc-800/80 rounded-3xl overflow-hidden flex flex-col shadow-xl" 
+                 data-id="salon-2"
+                 data-nombre="[NOMBRE_SALON_2]"
+                 data-precio="[PRECIO_SALON_2]"
+                 data-estado="[ESTADO_SALON_2]"
+                 data-ubicacion="[UBICACION_SALON_2]"
+                 data-descripcion="[DESCRIPCION_SALON_2]">
+                
+                <!-- GALERÍA DE IMÁGENES: 1 principal grande + 2 pequeñas (Collage)  -->
+                <div class="grid grid-cols-3 gap-1.5 p-2 bg-zinc-950/40 h-64 sm:h-72">
+                    <div class="col-span-2 relative overflow-hidden rounded-2xl group">
+                        <img src="[IMAGEN_PRINCIPAL_2]" alt="[NOMBRE_SALON_2] Principal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 bg-zinc-800">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="col-span-1 flex flex-col gap-1.5">
+                        <div class="h-1/2 relative overflow-hidden rounded-2xl group">
+                            <img src="[IMAGEN_SECUNDARIA_2]" alt="[NOMBRE_SALON_2] Secundaria" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 bg-zinc-800">
+                        </div>
+                        <div class="h-1/2 relative overflow-hidden rounded-2xl group">
+                            <img src="[IMAGEN_TERCERA_2]" alt="[NOMBRE_SALON_2] Tercera" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 bg-zinc-800">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido de la Tarjeta -->
+                <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between">
+                    <div>
+                        <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                            <h3 class="font-serif text-2xl font-bold text-white">[NOMBRE_SALON_2]</h3>
+                            
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 status-badge">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                [ESTADO_SALON_2]
+                            </span>
+                        </div>
+
+                        <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
+                            [DESCRIPCION_SALON_2]
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 text-sm">
+                            <div class="flex items-center gap-2.5 text-zinc-400 bg-zinc-950/50 px-3.5 py-2.5 rounded-xl border border-zinc-800/60">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i>
+                                <span class="truncate">[UBICACION_SALON_2]</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 text-zinc-400 bg-zinc-950/50 px-3.5 py-2.5 rounded-xl border border-zinc-800/60">
+                                <i class="fa-solid fa-tag text-amber-500"></i>
+                                <span class="font-bold text-white">$[PRECIO_SALON_2] MXN</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. ✅ SELECCIÓN DE SALÓN -->
+                    <button type="button" onclick="seleccionarSalon(this)" class="select-btn w-full py-3.5 px-4 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-zinc-800 text-zinc-200 border border-zinc-700 hover:bg-zinc-700 hover:text-white cursor-pointer">
+                        <i class="fa-regular fa-circle-check text-lg"></i>
+                        <span>Seleccionar y Cotizar</span>
+                    </button>
+                </div>
+            </div>
+
+
+          
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- 3. 📲 BOTÓN DE WHATSAPP CON MENSAJE AUTOMÁTICO -->
+        <!-- ========================================== -->
+        <div class="max-w-xl mx-auto bg-zinc-900/90 border border-amber-500/30 p-6 sm:p-8 rounded-3xl shadow-2xl text-center backdrop-blur-md mb-20">
+            <h3 class="font-serif text-xl sm:text-2xl font-bold mb-2 text-white">¿Listo para cotizar tu evento?</h3>
+            <p id="whatsapp-aviso" class="text-zinc-400 text-sm mb-6">Por favor selecciona un salón primero para habilitar el envío del mensaje automático.</p>
+            
+            <button id="whatsapp-btn" onclick="enviarWhatsApp()" disabled class="w-full py-4 px-6 rounded-2xl font-bold text-base transition-all duration-300 flex items-center justify-center gap-3 bg-zinc-800 text-zinc-500 border border-zinc-700 cursor-not-allowed shadow-none">
+                <i class="fa-brands fa-whatsapp text-xl text-zinc-500 transition-colors" id="whatsapp-icon"></i>
+                <span id="whatsapp-text">Enviar por WhatsApp</span>
+            </button>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- 4. 📍 SECCIÓN DE UBICACIÓN GENERAL -->
+        <!-- ========================================== -->
+        <section class="mb-12">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-amber-500 text-sm font-semibold tracking-widest uppercase mb-2 block">Nuestra Sede</span>
+                <h2 class="text-3xl font-serif font-bold mb-3 text-white">Ubicación General</h2>
+                <p class="text-zinc-400 text-sm">[DIRECCION_COMPLETA]</p>
+            </div>
+
+            <!-- Contenedor del Mapa Interactivo -->
+            <div class="rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900/50 shadow-2xl h-[400px] sm:h-[450px] relative">
+                <iframe src="[ENLACE_MAPA_GOOGLE]" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full filter invert hue-rotate-180 contrast-125 opacity-85"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- PIE DE PÁGINA -->
+    <!-- ========================================== -->
+    <footer class="border-t border-zinc-800 bg-zinc-950 py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <p class="text-zinc-500 text-sm">&copy; [AÑO_ACTUAL] [NOMBRE_DEL_SALON]. Todos los derechos reservados.</p>
+            <div class="flex items-center gap-4 text-zinc-400">
+                <a href="[ENLACE_RED_SOCIAL]" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:text-amber-500 hover:border-amber-500/40 transition-colors">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="[ENLACE_RED_SOCIAL]" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:text-amber-500 hover:border-amber-500/40 transition-colors">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- SCRIPTS DE INTERACTIVIDAD Y LÓGICA -->
+    <!-- ========================================== -->
+    <script>
+        let salonSeleccionado = null;
+
+        function seleccionarSalon(button) {
+            const card = button.closest('.salon-card');
+            const allCards = document.querySelectorAll('.salon-card');
+            const allButtons = document.querySelectorAll('.select-btn');
+
+            if (card.classList.contains('selected')) {
+                card.classList.remove('selected');
+                button.classList.remove('bg-amber-500', 'text-zinc-950', 'border-amber-400', 'font-bold');
+                button.classList.add('bg-zinc-800', 'text-zinc-200', 'border-zinc-700', 'hover:bg-zinc-700', 'hover:text-white');
+                button.innerHTML = '<i class="fa-regular fa-circle-check text-lg"></i><span>Seleccionar y Cotizar</span>';
+                salonSeleccionado = null;
+                desactivarBotonWhatsApp();
+                return;
+            }
+
+            // Limpiar selecciones previas
+            allCards.forEach(c => c.classList.remove('selected'));
+            allButtons.forEach(btn => {
+                btn.classList.remove('bg-amber-500', 'text-zinc-950', 'border-amber-400', 'font-bold');
+                btn.classList.add('bg-zinc-800', 'text-zinc-200', 'border-zinc-700', 'hover:bg-zinc-700', 'hover:text-white');
+                btn.innerHTML = '<i class="fa-regular fa-circle-check text-lg"></i><span>Seleccionar y Cotizar</span>';
+            });
+
+            // Seleccionar la tarjeta actual
+            card.classList.add('selected');
+            button.classList.remove('bg-zinc-800', 'text-zinc-200', 'border-zinc-700', 'hover:bg-zinc-700', 'hover:text-white');
+            button.classList.add('bg-amber-500', 'text-zinc-950', 'border-amber-400', 'font-bold');
+            button.innerHTML = '<i class="fa-solid fa-circle-check text-lg"></i><span>Salón Seleccionado</span>';
+
+            // Guardar datos del salón activo
+            salonSeleccionado = {
+                nombre: card.getAttribute('data-nombre'),
+                precio: card.getAttribute('data-precio'),
+                estado: card.getAttribute('data-estado'),
+                ubicacion: card.getAttribute('data-ubicacion'),
+                descripcion: card.getAttribute('data-descripcion')
+            };
+
+            activarBotonWhatsApp();
+        }
+
+        function activarBotonWhatsApp() {
+            const btn = document.getElementById('whatsapp-btn');
+            const icon = document.getElementById('whatsapp-icon');
+            const text = document.getElementById('whatsapp-text');
+            const aviso = document.getElementById('whatsapp-aviso');
+
+            btn.removeAttribute('disabled');
+            btn.className = "w-full py-4 px-6 rounded-2xl font-bold text-base transition-all duration-300 flex items-center justify-center gap-3 bg-emerald-600 text-white border border-emerald-500 hover:bg-emerald-500 shadow-lg shadow-emerald-900/30 cursor-pointer";
+            icon.className = "fa-brands fa-whatsapp text-2xl text-white";
+            text.textContent = "Enviar por WhatsApp";
+            aviso.textContent = `Salón seleccionado: ${salonSeleccionado.nombre}. ¡Haz clic para enviar tu cotización!`;
+            aviso.className = "text-amber-400 font-medium text-sm mb-6";
+        }
+
+        function desactivarBotonWhatsApp() {
+            const btn = document.getElementById('whatsapp-btn');
+            const icon = document.getElementById('whatsapp-icon');
+            const text = document.getElementById('whatsapp-text');
+            const aviso = document.getElementById('whatsapp-aviso');
+
+            btn.setAttribute('disabled', 'true');
+            btn.className = "w-full py-4 px-6 rounded-2xl font-bold text-base transition-all duration-300 flex items-center justify-center gap-3 bg-zinc-800 text-zinc-500 border border-zinc-700 cursor-not-allowed shadow-none";
+            icon.className = "fa-brands fa-whatsapp text-xl text-zinc-500";
+            text.textContent = "Enviar por WhatsApp";
+            aviso.textContent = "Por favor selecciona un salón primero para habilitar el envío del mensaje automático.";
+            aviso.className = "text-zinc-400 text-sm mb-6";
+        }
+
+        function enviarWhatsApp() {
+            if (!salonSeleccionado) return;
+
+            const numeroTelefono = "[NUMERO_WHATSAPP]";
+            const mensaje = `¡Hola! Me interesa rentar el siguiente salón:
+- Nombre del salón: ${salonSeleccionado.nombre}
+- Precio: $${salonSeleccionado.precio} MXN
+- Estado de ocupación: ${salonSeleccionado.estado}
+- Ubicación: ${salonSeleccionado.ubicacion}
+- Descripción breve: ${salonSeleccionado.descripcion}
+¿Podrían darme más información y disponibilidad?`;
+
+            const url = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
