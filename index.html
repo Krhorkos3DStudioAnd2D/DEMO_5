@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[NOMBRE_DEL_SALON] - Renta de Salones para Eventos</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        venueDark: '#07090e',
+                        cardSurface: '#0d111a',
+                        cardBorder: '#1a2233',
+                        goldAccent: '#d4af37',
+                        goldHover: '#f3e5ab',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #07090e;
+            background-image: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 60%),
+                              radial-gradient(circle at 10% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+        .glass-panel {
+            background: rgba(13, 17, 26, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .gold-glow {
+            box-shadow: 0 0 35px -5px rgba(212, 175, 55, 0.2);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #07090e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a2233;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2a3650;
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-goldAccent selection:text-slate-950 font-sans">
+
+    <!-- 1. ENCABEZADO Y BIENVENIDA -->
+    <header class="glass-panel border-b border-slate-800/80 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <!-- =============================================================================================================== Logotipo y Nombre del Salón =============================================================================================================== -->
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-goldAccent to-amber-700 flex items-center justify-center shadow-lg shadow-goldAccent/10 group-hover:scale-105 transition-transform duration-300">
+                    <span class="text-slate-950 font-bold text-xl">🏛️</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-extrabold text-lg tracking-wider text-white group-hover:text-goldAccent transition-colors">
+                        [NOMBRE_DEL_SALON]
+                    </span>
+                    <span class="text-[10px] text-slate-400 uppercase tracking-widest">Renta de Espacios Exclusivos</span>
+                </div>
+            </a>
+
+            <!-- Navegación rápida en escritorio -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-medium text-slate-300 uppercase tracking-wider">
+                <a href="#horarios" class="hover:text-goldAccent transition">Horarios</a>
+                <a href="#nosotros" class="hover:text-goldAccent transition">Sobre Nosotros</a>
+                <a href="#ubicacion" class="hover:text-goldAccent transition">Ubicación</a>
+                <a href="salones.html" class="text-goldAccent font-semibold hover:underline">Ver Catálogo</a>
+            </nav>
+
+            <!-- Acceso rápido a WhatsApp móvil -->
+            <div class="flex items-center">
+                <a href="https://wa.me/[NUMERO_WHATSAPP]?text=Hola,%20deseo%20más%20información%20sobre%20la%20renta%20de%20salones%20para%20eventos." target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center space-x-2 transition shadow-md">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span class="hidden sm:inline">WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="flex-grow max-w-7xl mx-auto px-6 py-12 md:py-20 w-full space-y-24">
+        
+        <!-- SECCIÓN HERO / BIENVENIDA -->
+        <section class="text-center max-w-4xl mx-auto space-y-8 pt-6">
+            <div class="inline-flex items-center space-x-2 bg-goldAccent/10 border border-goldAccent/30 px-4 py-1.5 rounded-full text-goldAccent text-xs font-semibold uppercase tracking-widest shadow-sm">
+                <span>✨ [SUB_TITULO_ETIQUETA]</span>
+            </div>
+            
+            <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight">
+                [NOMBRE_DEL_SALON]
+            </h1>
+            
+            <p class="text-slate-300 text-base sm:text-xl font-light leading-relaxed max-w-2xl mx-auto">
+                [SUBTITULO_BREVE_DESCRIPCION]
+            </p>
+
+            <!-- 2. BOTONES PRINCIPALES -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <!-- Botón Destacado: Ver Salones -->
+                <a href="salones.html" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-goldAccent to-amber-600 hover:from-amber-500 hover:to-goldAccent text-slate-950 font-heading font-bold text-sm transition-all transform hover:scale-105 gold-glow flex items-center justify-center space-x-3">
+                    <span>Ver Salones y Disponibilidad</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+
+                <!-- Botón Visible: WhatsApp -->
+                <a href="https://wa.me/[NUMERO_WHATSAPP]?text=Hola,%20quisiera%20cotizar%20la%20renta%20de%20un%20salón%20para%20mi%20evento." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 hover:border-emerald-500 font-heading font-semibold text-sm transition-all flex items-center justify-center space-x-3 group">
+                    <svg class="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>Contactar por WhatsApp</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- =============================================================================================================== 3. SECCIÓN DE HORARIOS =============================================================================================================== -->
+        <section id="horarios" class="max-w-4xl mx-auto">
+            <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-16 -top-16 w-48 h-48 bg-goldAccent/5 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-goldAccent/10 flex items-center justify-center text-goldAccent font-bold">🕒</div>
+                    <h2 class="font-heading text-2xl font-bold text-white">Horarios de Atención</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                    <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                        <span class="text-xs uppercase tracking-widest text-goldAccent font-semibold mb-1">Días Hábiles / Oficina</span>
+                        <span class="text-slate-200 font-medium">[DIA_INICIO] – [DIA_FIN]: <strong class="text-white">[HORA_APERTURA] – [HORA_CIERRE]</strong></span>
+                    </div>
+                    <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                        <span class="text-xs uppercase tracking-widest text-goldAccent font-semibold mb-1">Atención Especial / Eventos</span>
+                        <span class="text-slate-200 font-medium">[DIAS_ESPECIALES]: <strong class="text-white">[HORARIO_ESPECIAL]</strong></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SECCIÓN DE INFORMACIÓN (SOBRE NOSOTROS) -->
+        <section id="nosotros" class="max-w-4xl mx-auto">
+            <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-800 shadow-2xl space-y-8">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-goldAccent/10 flex items-center justify-center text-goldAccent font-bold">📖</div>
+                    <h2 class="font-heading text-2xl font-bold text-white">Sobre Nosotros</h2>
+                </div>
+
+                <p class="text-slate-300 text-base leading-relaxed font-light">
+                    [TEXTO_DESCRIPCION_NEGOCIO]
+                </p>
+
+                <!-- =============================================================================================================== Datos de contacto =============================================================================================================== -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-slate-800/80">
+                    <div class="space-y-1">
+                        <span class="text-xs uppercase tracking-wider text-slate-500 block font-semibold">Teléfono</span>
+                        <span class="text-sm font-medium text-slate-200">[TELEFONO_CONTACTO]</span>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-xs uppercase tracking-wider text-slate-500 block font-semibold">Correo Electrónico</span>
+                        <span class="text-sm font-medium text-slate-200">[CORREO_CONTACTO]</span>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-xs uppercase tracking-wider text-slate-500 block font-semibold">Dirección Principal</span>
+                        <span class="text-sm font-medium text-slate-200">[DIRECCION_COMPLETA]</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SECCIÓN DE UBICACIÓN -->
+        <section id="ubicacion" class="max-w-4xl mx-auto">
+            <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-800 shadow-2xl space-y-6">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-goldAccent/10 flex items-center justify-center text-goldAccent font-bold">📍</div>
+                        <div>
+                            <h2 class="font-heading text-2xl font-bold text-white">¿Dónde Estamos?</h2>
+                            <p class="text-xs text-slate-400 mt-0.5">Visita nuestras instalaciones con cita previa</p>
+                        </div>
+                    </div>
+                    
+                    <a href="[ENLACE_MAPA_GOOGLE]" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-xs px-4 py-2.5 rounded-xl transition shadow">
+                        <span>Abrir en Google Maps</span>
+                        <svg class="w-4 h-4 ml-2 text-goldAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Contenedor del Mapa Embebido -->
+                <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 relative h-80 sm:h-96 shadow-inner">
+                    <!-- Contenedor listo para insertar iframe de Google Maps o marcador personalizado -->
+                    <iframe class="w-full h-full absolute inset-0 opacity-75 grayscale contrast-125 hover:grayscale-0 transition duration-500" src="https://maps.google.com/maps?q=0,0&z=15&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                    
+                    <div class="absolute bottom-4 left-4 bg-slate-950/90 backdrop-blur-md border border-slate-800 px-4 py-3 rounded-xl shadow-lg pointer-events-none">
+                        <span class="block text-[10px] font-semibold text-goldAccent uppercase">Dirección Registrada</span>
+                        <span class="text-xs text-slate-300 font-mono">[DIRECCION_COMPLETA]</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 6. PIE DE PÁGINA -->
+    <footer class="glass-panel border-t border-slate-800 py-10 text-center text-xs text-slate-400 mt-20">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-goldAccent/10 flex items-center justify-center text-goldAccent font-bold">🏛️</div>
+                <span class="font-heading font-semibold text-white">[NOMBRE_DEL_SALON]</span>
+            </div>
+
+            <!-- =============================================================================================================== Redes sociales =============================================================================================================== -->
+            <div class="flex items-center space-x-6 text-slate-300">
+                <a href="[ENLACE_RED_SOCIAL]" target="_blank" rel="noopener noreferrer" class="hover:text-goldAccent transition">Facebook</a>
+                <a href="[ENLACE_RED_SOCIAL]" target="_blank" rel="noopener noreferrer" class="hover:text-goldAccent transition">Instagram</a>
+                <a href="[ENLACE_RED_SOCIAL]" target="_blank" rel="noopener noreferrer" class="hover:text-goldAccent transition">TikTok</a>
+            </div>
+
+            <div>
+                <p class="text-slate-500">©2026 [NOMBRE_DEL_SALON]. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
